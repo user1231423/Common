@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Encoding", "Common.Encoding\Common.Encoding.csproj", "{061BC748-317A-4B96-A523-5B3880248FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Common.Encoding", "Test.Common.Encoding\Test.Common.Encoding.csproj", "{45A65AB5-6D67-4927-87B2-07BB905700CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{061BC748-317A-4B96-A523-5B3880248FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061BC748-317A-4B96-A523-5B3880248FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061BC748-317A-4B96-A523-5B3880248FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061BC748-317A-4B96-A523-5B3880248FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A65AB5-6D67-4927-87B2-07BB905700CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A65AB5-6D67-4927-87B2-07BB905700CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A65AB5-6D67-4927-87B2-07BB905700CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A65AB5-6D67-4927-87B2-07BB905700CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A3C154E-64CC-475A-8901-9679A3DE1305}
+	EndGlobalSection
+EndGlobal
