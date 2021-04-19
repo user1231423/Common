@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Common.Pagination
 {
-    public static class PaginationManager
+    public static class PaginationExtensions
     {
         /// <summary>
         /// Get meta data from paged list
