@@ -12,13 +12,13 @@ namespace Test.Common.Encoding
     public class TestEncryptionService
     {
         [TestMethod]
-        public void TripleDESEncryption()
+        public void TripleDES()
         {
             var test = "Testing";
 
             var encrypted = test.Encrypt();
 
-            var decrypted = test.Decrypt();
+            var decrypted = encrypted.Decrypt();
 
             Assert.IsTrue(decrypted == test);
         }
