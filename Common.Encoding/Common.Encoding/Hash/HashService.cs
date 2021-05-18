@@ -21,9 +21,9 @@ namespace Common.Encoding.Hash
                 var hash = new MD5CryptoServiceProvider().ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToHash));
                 return string.Concat(hash.Select(b => b.ToString("X2").Replace("-", "").ToString()));
             }
-            catch (Exception e)
+            catch
             {
-                throw e;
+                throw;
             }
         }
 
@@ -39,9 +39,9 @@ namespace Common.Encoding.Hash
                 var hash = new MD5CryptoServiceProvider().ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToHash));
                 return string.Concat(hash.Select(b => b.ToString("X2").Replace("-", "").ToString()));
             }
-            catch (Exception e)
+            catch
             {
-                throw e;
+                throw;
             }
         }
 
@@ -57,9 +57,9 @@ namespace Common.Encoding.Hash
                 var hash = new SHA1Managed().ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToHash));
                 return string.Concat(hash.Select(b => b.ToString("X2").Replace("-", "").ToString()));
             }
-            catch(Exception e)
+            catch
             {
-                throw e;
+                throw;
             }
         }
 
@@ -75,9 +75,9 @@ namespace Common.Encoding.Hash
                 var hash = new SHA1Managed().ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToHash));
                 return string.Concat(hash.Select(b => b.ToString("X2").Replace("-", "").ToString()));
             }
-            catch(Exception e)
+            catch
             {
-                throw e;
+                throw;
             }
         }
 
@@ -93,9 +93,9 @@ namespace Common.Encoding.Hash
                 var hash = new SHA256Managed().ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToHash));
                 return string.Concat(hash.Select(b => b.ToString("X2").Replace("-", "").ToString()));
             }
-            catch (Exception e)
+            catch
             {
-                throw e;
+                throw;
             }
         }
 
@@ -111,9 +111,9 @@ namespace Common.Encoding.Hash
                 var hash = new SHA256Managed().ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToHash));
                 return string.Concat(hash.Select(b => b.ToString("X2").Replace("-", "").ToString()));
             }
-            catch (Exception e)
+            catch
             {
-                throw e;
+                throw;
             }
         }
     }

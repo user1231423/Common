@@ -48,9 +48,9 @@
 
                 return Convert.ToBase64String(encryptedTextBytes, 0, encryptedTextBytes.Length);
             }
-            catch(Exception e)
+            catch
             {
-                throw e;
+                throw;
             }
         }
 
@@ -87,9 +87,9 @@
 
                 return UTF8Encoding.UTF8.GetString(decryptedTextBytes);
             }
-            catch(Exception e)
+            catch
             {
-                throw e;
+                throw;
             }
         }
     }
