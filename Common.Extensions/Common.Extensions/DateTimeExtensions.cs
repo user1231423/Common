@@ -24,11 +24,11 @@ namespace Common.Extensions
         /// Get lifetime in secods
         /// </summary>
         /// <param name="creationTime"></param>
-        /// <param name="now"></param>
+        /// <param name="expireDate"></param>
         /// <returns></returns>
-        public static int GetLifetimeInSeconds(this DateTime creationTime, DateTime now)
+        public static int GetLifetimeInSeconds(this DateTime creationTime, DateTime expireDate)
         {
-            return ((int)(now - creationTime).TotalSeconds);
+            return ((int)(expireDate - creationTime).TotalSeconds);
         }
 
         /// <summary>
