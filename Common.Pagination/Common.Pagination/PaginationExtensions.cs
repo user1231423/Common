@@ -69,7 +69,7 @@ namespace Common.Pagination
         /// <param name="orderByDescending"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IQueryable<T> PageBy<T, TKey>(this IQueryable<T> query, Expression<Func<T, TKey>> orderBy, int page, int pageSize, bool orderByDescending = true)
+        public static IQueryable<T> PageBy<T, TKey>(this IQueryable<T> query, Expression<Func<T, TKey>> orderBy, PaginationParams parameters, bool orderByDescending = true)
         {
             const int defaultPageNumber = 1;
 
@@ -79,19 +79,15 @@ namespace Common.Pagination
             }
 
             // Check if the page number is greater then zero - otherwise use default page number
-            if (page <= 0)
+            if (parameters.CurrentPage <= 0)
             {
-                page = defaultPageNumber;
+                parameters.CurrentPage = defaultPageNumber;
             }
 
             // It is necessary sort items before it
             query = orderByDescending ? query.OrderByDescending(orderBy) : query.OrderBy(orderBy);
 
-            //pagedList.Data.AddRange(identityResources);
-            //pagedList.TotalCount = await DbContext.IdentityResources.WhereIf(!string.IsNullOrEmpty(search), searchCondition).CountAsync();
-            //pagedList.PageSize = pageSize;
-
-            return query.Skip((page - 1) * pageSize).Take(pageSize);
+            return query.Skip((parameters.CurrentPage - 1) * parameters.PageSize).Take(parameters.PageSize);
         }
     }
 }
