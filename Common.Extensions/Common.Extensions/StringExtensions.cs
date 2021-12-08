@@ -110,7 +110,7 @@ namespace Common.Extensions
         {
             if (url != null && url.StartsWith("/"))
             {
-                url = url.Substring(1);
+                url = url[1..];
             }
 
             return url;
@@ -125,7 +125,7 @@ namespace Common.Extensions
         {
             if (url != null && url.EndsWith("/"))
             {
-                url = url.Substring(0, url.Length - 1);
+                url = url[0..^1];
             }
 
             return url;
