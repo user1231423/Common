@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Common.Pagination
 {
@@ -53,6 +54,44 @@ namespace Common.Pagination
             var items = source.Skip((parameters.CurrentPage - 1) * parameters.PageSize).Take(parameters.PageSize).ToList();
 
             return new PagedList<T>(items, count, parameters.CurrentPage, parameters.PageSize);
+        }
+
+        /// <summary>
+        /// Page by
+        /// This allows to use ToListAsync at the end of the query
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="orderBy"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="orderByDescending"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IQueryable<T> PageBy<T, TKey>(this IQueryable<T> query, Expression<Func<T, TKey>> orderBy, int page, int pageSize, bool orderByDescending = true)
+        {
+            const int defaultPageNumber = 1;
+
+            if (query == null)
+            {
+                throw new ArgumentNullException(nameof(query));
+            }
+
+            // Check if the page number is greater then zero - otherwise use default page number
+            if (page <= 0)
+            {
+                page = defaultPageNumber;
+            }
+
+            // It is necessary sort items before it
+            query = orderByDescending ? query.OrderByDescending(orderBy) : query.OrderBy(orderBy);
+
+            //pagedList.Data.AddRange(identityResources);
+            //pagedList.TotalCount = await DbContext.IdentityResources.WhereIf(!string.IsNullOrEmpty(search), searchCondition).CountAsync();
+            //pagedList.PageSize = pageSize;
+
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
     }
 }
