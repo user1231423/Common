@@ -11,11 +11,11 @@ namespace Common.Pagination.Models
         /// <summary>
         /// Current page
         /// </summary>
-        public int CurrentPage { get; set; }
+        public int CurrentPage { get; set; } = 1;
 
         /// <summary>
         /// Page size
         /// </summary>
-        public int PageSize { get; set; }
+        public int PageSize { get; set; } = 10;
     }
 }
