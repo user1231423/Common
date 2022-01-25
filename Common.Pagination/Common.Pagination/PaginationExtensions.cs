@@ -64,8 +64,7 @@ namespace Common.Pagination
         /// <typeparam name="TKey"></typeparam>
         /// <param name="query"></param>
         /// <param name="orderBy"></param>
-        /// <param name="page"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="parameters"></param>
         /// <param name="orderByDescending"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
@@ -74,15 +73,11 @@ namespace Common.Pagination
             const int defaultPageNumber = 1;
 
             if (query == null)
-            {
                 throw new ArgumentNullException(nameof(query));
-            }
 
             // Check if the page number is greater then zero - otherwise use default page number
             if (parameters.CurrentPage <= 0)
-            {
                 parameters.CurrentPage = defaultPageNumber;
-            }
 
             // It is necessary sort items before it
             query = orderByDescending ? query.OrderByDescending(orderBy) : query.OrderBy(orderBy);
